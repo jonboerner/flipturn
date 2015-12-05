@@ -3,9 +3,13 @@ import { connect } from 'react-redux';
 
 class App extends Component {
    render() {
-      const { dispatch } = this.props;
+      const { dispatch, todos } = this.props;
       return (
-         <h1>Hello, world.</h1>
+         <div>
+            <h1>Hello, world.</h1>
+            <button onClick={() => dispatch({type:'add_todo'})}>Add todo</button>
+            {todos.map((t, i) => <div key={i}>{t}</div>)}
+         </div>
       );
    }
 }
